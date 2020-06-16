@@ -1,0 +1,223 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="CSS Animation" />
+    <meta property="og:type" content="web page" />
+    <meta property="og:url" content="https://wallerweave.com/candle" />
+    <meta
+      property="og:image"
+      content="https://wallerweave.com/chicken/og-candle.png"
+    />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="candle.png" />
+    <meta property="og:alt" content="CSS Animation | Candle | WallerWeave" />
+    <meta property="og:description" content="A candle animation in pure CSS" />
+    <link rel="stylesheet" type="text/css" href="css/candle.css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="https://wallerweave.com/images/logo-s-light.png"
+    />
+    <title>CSS Animation</title>
+  </head>
+
+  <body>
+    <div class="background">
+      <div class="frame"></div>
+      <div class="light">
+        <div class="candlestick">
+          <div class="shine"></div>
+          <div class="shine"></div>
+          <div class="candle">
+            <div class="candle-light">
+              <div class="candle-inner-light"></div>
+            </div>
+            <div class="candlewick"></div>
+            <div class="flame"></div>
+            <div class="inner-flame"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="code-section">
+        <h3>HTML <span onclick="HTML()">copy HTML</span></h3>
+        <div class="html">
+          <pre><code><textarea readonly id="copyHTML">
+
+    &lt;div class="background">
+        &lt;div class="frame">&lt;/div>
+        &lt;div class="light">
+            &lt;div class="candlestick">
+                &lt;div class="shine">&lt;/div>
+                &lt;div class="shine">&lt;/div>
+                &lt;div class="candle">
+                    &lt;div class="candle-light">
+                        &lt;div class="candle-inner-light">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="candlewick">&lt;/div>
+                    &lt;div class="flame">&lt;/div>
+                    &lt;div class="inner-flame">&lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+    </textarea></code></pre>
+        </div>
+      </div>
+
+      <div class="code-section">
+        <h3>CSS <span onclick="CSS()">copy CSS</span></h3>
+        <div class="css">
+          <pre><code><textarea readonly id="copyCSS">
+
+    .background {
+        background-image: radial-gradient(#3c305e 1%, #17152c 75%, #121122);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0;
+    }
+    
+    .light {
+        z-index: 9;
+        margin-top: 110px;
+    
+    }
+    
+    .candlestick {
+        position: relative;
+        width: 30px;
+        height: 120px;
+        background: radial-gradient(#a5312900 48%, #72542c 51%, #e0bc78);
+        border-radius: 4px;
+        background-position: 45px 0;
+    }
+    
+    .shine {
+        position: absolute;
+        width: 100%;
+        height: 18px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background: linear-gradient(#00000000 50%, #e0bc78 100%) no-repeat;
+        background-position: 0 5px;
+        background-size: 100% 100%;
+    }
+    
+    .shine:nth-child(2) {
+        bottom: 0;
+        background: linear-gradient(#00000000 50%, #b89960 100%) no-repeat;
+        background-position: 0 5px;
+        background-size: 100% 100%;
+        box-shadow: inset -5px 8px 10px #1b150a96;
+        transform: scaleX(-1) scaleY(-1);
+    }
+    
+    .candle {
+        position: absolute;
+        width: 10px;
+        height: 98px;
+        bottom: 120px;
+        border-top-right-radius: 100px;
+        border-top-left-radius: 10px;
+        left: 10px;
+        background: radial-gradient(#fff, #99999980);
+        box-shadow: inset 4px 5px 3px rgb(241, 241, 241);
+    }
+    
+    .flame {
+        position: absolute;
+        width: 15px;
+        height: 30px;
+        top: -34px;
+        left: -2px;
+        background: radial-gradient(#d8c88f5d 10%, #ffe8a800 68%);
+        border-radius: 100%;
+        animation: bigFlame 1500ms infinite;
+    }
+    
+    .inner-flame {
+        position: absolute;
+        width: 7px;
+        height: 15px;
+        top: -20px;
+        left: 2px;
+        background: radial-gradient(#ffcb6aaf 10%, #ffe8a800 70%);
+        border-radius: 100%;
+        animation: smallFlame 1500ms infinite;
+    }
+    
+    @keyframes bigFlame {
+        0%, 100% {
+            top: -33px;
+            left: -2px;
+        }
+    
+        50% {
+            top: -35px;
+            left: -1px;
+        }
+    }
+    
+    @keyframes smallFlame {
+        0%, 100% {
+            top: -20px;
+            left: 2px;
+        }
+    
+        50% {
+            top: -23;
+            left: 2px;
+        } 
+    }
+    
+    .candlewick {
+        position: absolute;
+        background: radial-gradient(#000, #99999980);
+        width: 2px;
+        height: 15px;
+        left: 4px;
+        top: -10px;
+    }
+    
+    .frame {
+        position: absolute;
+        height: 350px;
+        width: 220px;
+        border-radius: 100%;
+        box-shadow: 0 0 10px #0b0a16;
+    }
+            </textarea></code></pre>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <ul>
+        <li>
+          <a href="https://reverent-torvalds-14c70a.netlify.app/" target="_self"
+            ><b>Portfolio</b></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/selma-waller-4099b6146/"
+            target="_blank"
+            >Linkedin</a
+          >
+        </li>
+        <li>
+          <a href="mailto:selmawaller@gmail.com" target="_top">Contact</a>
+        </li>
+      </ul>
+      <p>Copyright © 2019 Selma Waller</p>
+    </footer>
+    <div id="HTMLcont"></div>
+    <div id="CSScont"></div>
+    <script src="js/copy.js"></script>
+  </body>
+</html>
